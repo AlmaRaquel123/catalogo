@@ -60,11 +60,11 @@ function onDeviceReady(){
 		/**********Evento para consulta por ID*************/
 		$("#btnConsID").tap(function (){
 			var id=$("#txtIDServ").val();
-			/*alert=("funciona");*/
+			//alert("funciona"+id);
 			$.ajax({
 				type:"POST",
 				url:"http://raquelmovil.esy.es/ConsultaID.php",
-				data:"ID"+id,
+				data:"ID="+id,
 				success:function (datos) {
 					var reg=$.parseJSON(datos);
 					var fila=$("#datosID");
@@ -178,7 +178,7 @@ function onDeviceReady(){
 			<input type="button" id="btnConsServ" value="Consultar Todos los Servicios">
 			<div>
 			<table data-role="table" data-mode="columntoggle" class="ui-responsive" id="tb1">
-				<thead id="datosTodos">
+				<thead >
 					<tr>
 						<th data-priority="1">Id</th>
 						<th data-priority="2">Nombre</th>
@@ -211,7 +211,7 @@ function onDeviceReady(){
 			<input type="button" id="btnConsID" value="Consultar Servicio">
 			<div>
 			<table data-role="table" data-mode="columntoggle" class="ui-responsive" id="tb2">
-				<thead id="datosID">
+				<thead>
 					<tr>
 						<th data-priority="1">Id</th>
 						<th data-priority="2">Nombre</th>
