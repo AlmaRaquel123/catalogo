@@ -59,7 +59,7 @@ function onDeviceReady(){
 
 		/**********Evento para consulta por ID*************/
 		$("#btnConsID").tap(function (){
-			var id=$("txtIDServ").val();
+			var id=$("#txtIDServ").val();
 			/*alert=("funciona");*/
 			$.ajax({
 				type:"POST",
@@ -72,6 +72,7 @@ function onDeviceReady(){
 					 	fila.append("<tr><td>"+reg[i].Id_Servicios+"</td><td>"+reg[i].Nombre_servicio+"</td><td>"+reg[i].Direcccion+"</td><td>"+reg[i].RFC+"</td><td>"+reg[i].Telefono+"</td><td>"+reg[i].Clasificacion+"</td><td>"+reg[i].Foto+"</td><td>"+reg[i].Latitud+"</td><td>"+reg[i].Longitud+"</td></tr>");
 					 	/*alert("Funciona consultar por ID correctamente: "); */
 					 }
+					 /* */
 					$("#tb2").table("refresh");
 				}
 			});
