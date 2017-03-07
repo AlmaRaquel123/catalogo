@@ -82,8 +82,10 @@ function onDeviceReady(){
 var btnConsEliminar=$("#btnConsEliminar");
   btnConsEliminar.click(function conEliminar(){  
     $.ajax({
+    	//alert("funciona");
+    			/lert("funciona");
     type:"POST",
-    url:"Consulta.php",
+    url:"http://raquelmovil.esy.es/Consulta.php",
     data:"",
     success: consultaAntEliminar
     });
@@ -102,8 +104,9 @@ var btnConsEliminar=$("#btnConsEliminar");
       var idEliminar=parseInt($("#idEliminar").val());
       
 	$.ajax({
+				alert("funciona");
 	  type:"POST",
-	  url:"Eliminar.php",
+	  url:"http://raquelmovil.esy.es/Eliminar.php",
 	  data:"id="+idEliminar,
 	  success: eliminacion
 	});
