@@ -78,7 +78,35 @@ function onDeviceReady(){
 			});
 		});
 
+/************************ELIMINAR******************************/
+var btnConsEliminar=$("#btnConsEliminar");
+  btnConsEliminar.click(function conEliminar(){  
+    $.ajax({
+    type:"POST",
+    url:"Consulta.php",
+    data:"",
+    success: consultaAntEliminar
+    });
+    
+    function consultaAntEliminar(datos){   
+      var datAntesEliminar=$.parseJSON(datos);       
+      var respConElim=$("#respConElim");      
+      dibujarTabla(respConElim,datAntesEliminar);
+    }
+  });
+  
 
+   var btnEliminar=$("#btnEliminar");
+   
+      btnEliminar.click(function actual(){
+      var idEliminar=parseInt($("#idEliminar").val());
+      
+	$.ajax({
+	  type:"POST",
+	  url:"Eliminar.php",
+	  data:"id="+idEliminar,
+	  success: eliminacion
+	});
 
 	/***********Obtener Coordenadas***********************/
 	$("#btnCords").tap(function(){//Obtener coordenadas para el registro de servicios			
@@ -228,6 +256,22 @@ function onDeviceReady(){
 				</tbody>
 			</table>
 			</div>
+		</div>
+		<div data-role="footer">
+			<p><a href="#Principal" class="ui-btn ui-icon-home ui-btn-icon-left">Regresar</a></p>
+		</div>
+	</div>
+
+
+
+		<div data-role="page" id="Eliminar">
+		<div data-role="header">
+			<p>Eliminar Servicio</p>
+		</div>	
+		<div data-role="content">
+		<input type="text" id="txtEliminar" placeholder="Escribe el ID del servicio a eliminar">
+			<input type="button" id="btnEliminar" value="Consultar Servicio">
+
 		</div>
 		<div data-role="footer">
 			<p><a href="#Principal" class="ui-btn ui-icon-home ui-btn-icon-left">Regresar</a></p>
