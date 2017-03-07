@@ -81,9 +81,9 @@ function onDeviceReady(){
 /************************ELIMINAR******************************/
 var btnConsEliminar=$("#btnConsEliminar");
   btnConsEliminar.click(function conEliminar(){  
-    $.ajax({
+  /*  $.ajax({
     	//alert("funciona");
-    			/lert("funciona");
+    			alert("funciona");
     type:"POST",
     url:"http://raquelmovil.esy.es/Consulta.php",
     data:"",
@@ -94,7 +94,24 @@ var btnConsEliminar=$("#btnConsEliminar");
       var datAntesEliminar=$.parseJSON(datos);       
       var respConElim=$("#respConElim");      
       dibujarTabla(respConElim,datAntesEliminar);
-    }
+    }*/
+
+    			$.ajax({
+				type:"POST",
+				url:"http://raquelmovil.esy.es/Consulta.php",
+				data:"",
+				success:function (datos) {
+					var reg=$.parseJSON(datos);
+					var fila=$("#datosTodos");
+					 for(var i in reg){
+					 	fila.append("<tr><td>"+reg[i].Id_Servicios+"</td><td>"+reg[i].Nombre_servicio+"</td><td>"+reg[i].Direcccion+"</td><td>"+reg[i].RFC+"</td><td>"+reg[i].Telefono+"</td><td>"+reg[i].Clasificacion+"</td><td>"+reg[i].Foto+"</td><td>"+reg[i].Latitud+"</td><td>"+reg[i].Longitud+"</td></tr>");
+
+					 		/*alert("Funciona consultar correctamente: "); */
+					 		/*coment*/
+					 }
+					$("#tb1").table("refresh");
+				}
+			});
   });
   
 
